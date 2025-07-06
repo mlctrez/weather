@@ -133,7 +133,12 @@ func (s *Service) setupHandler() (err error) {
 	s.handler = &app.Handler{Env: make(map[string]string)}
 	s.handler.Scripts = make([]string, 0)
 	s.handler.Styles = make([]string, 0)
-	s.handler.Icon = app.Icon{SVG: "/web/icon.svg"}
+	s.handler.Icon = app.Icon{
+		Default:  "/web/icon.png",
+		Large:    "/web/icon.png",
+		SVG:      "/web/icon.svg",
+		Maskable: "/web/icon.png",
+	}
 	s.handler.Title = "weather"
 	s.handler.Name = "weather"
 	s.handler.ShortName = "weather"
