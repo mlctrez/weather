@@ -134,10 +134,8 @@ func (s *Service) setupHandler() (err error) {
 	s.handler.Scripts = make([]string, 0)
 	s.handler.Styles = make([]string, 0)
 	s.handler.Icon = app.Icon{
-		Default:  "/web/icon.png",
-		Large:    "/web/icon.png",
-		SVG:      "/web/icon.svg",
-		Maskable: "/web/icon.png",
+		Default: "https://raw.githubusercontent.com/mlctrez/weather/master/goapp/web/icon.png",
+		SVG:     "https://raw.githubusercontent.com/mlctrez/weather/master/goapp/web/icon.svg",
 	}
 	s.handler.Title = "weather"
 	s.handler.Name = "weather"

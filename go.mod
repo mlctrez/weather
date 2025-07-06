@@ -2,7 +2,7 @@ module github.com/mlctrez/weather
 
 go 1.23.0
 
-replace github.com/briandowns/openweathermap v0.21.1 => /home/mattman/golang/briandowns/openweathermap
+replace github.com/briandowns/openweathermap v0.21.1 => /home/mattman/golang/openweathermap
 
 require (
 	github.com/anargu/gin-brotli v0.0.0-20220116052358-12bf532d5267
