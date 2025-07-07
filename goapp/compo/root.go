@@ -49,17 +49,30 @@ func (r *Root) Render() app.UI {
 			}
 			imgSrc = "/web/images/" + item.Weather[0].Icon + "_t.png"
 		}
+		_ = imgSrc
 
 		rows = append(rows, app.Tr().Body(
-			app.Td().Body(app.Img().Src(imgSrc)),
-			app.Td().Body(app.Text(t.Format("Mon 03:04PM"))),
-			//app.Td().Body(app.Text(fmt.Sprintf("%3.0f", item.Main.Temp))),
-			app.Td().Body(app.Text(fmt.Sprintf("%3.0f", item.Main.FeelsLike))),
+			//app.Td().Body(app.Img().Src(imgSrc)),
+			app.Td().Body(app.Div().Class("crop-container").Body(app.Img().Src(imgSrc))),
+			app.Td().Body(app.Text(t.Format("Mon 03 PM"))),
+			app.Td().Body(app.Text(fmt.Sprintf("%3.0f", item.Main.Temp))),
+			//app.Td().Body(app.Text(fmt.Sprintf("%3.0f", item.Main.FeelsLike))),
 			//app.Td().Body(app.Text(fmt.Sprintf("%5d", item.Main.Humidity))),
 			app.Td().Body(app.Text(str)),
 		))
 	}
-	return app.Div().Body(app.Table().Body(rows...))
+
+	return app.Div().Body(
+		app.Table().
+			Style("border-collapse", "collapse").
+			Style("border-spacing", "0").
+			Style("margin", "4px").
+			Style("padding", "0").
+			Body(
+				app.THead(),
+				app.TBody().Body(rows...),
+			),
+	)
 
 }
 

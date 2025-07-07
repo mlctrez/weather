@@ -2,3 +2,13 @@ body {
     color: white;
     background-color: #000;
 }
+
+.crop-container {
+    width: 32px; /*  Adjust to your desired width  */
+    height: 32px; /* Adjust to your desired height */
+    overflow: hidden; /* This hides anything outside the container */
+}
+
+.crop-container img {
+    margin: -8px;
+}
